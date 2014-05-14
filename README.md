@@ -1,6 +1,8 @@
 geard [![Build Status](https://travis-ci.org/openshift/geard.png?branch=master)](https://travis-ci.org/openshift/geard)
 =====
 
+Already know about geard and want to hack?  See instructions for [trying it out](#try-it-out) and [developing](#developing-geard).
+
 geard is a command line client for installing [Docker](https://www.docker.io) images as containers onto a systemd-enabled Linux operating system (systemd 207 or newer).  It may be run as a command:
 
     $ sudo gear install pmorie/sti-html-app my-sample-service
@@ -216,7 +218,7 @@ If you don't have those, you can use the following to run in a development vm:
 
 If you have Go installed locally (have a valid GOPATH env variable set), run:
 
-    go get github.com/openshift/geard
+    go get github.com/openshift/geard/cmd/{gear,switchns}
     cd $GOPATH/src/github.com/openshift/geard
     vagrant up
 
@@ -246,9 +248,8 @@ An example systemd unit file for geard is included in the `contrib/` directory. 
     sudo systemctl enable $(pwd)/contrib/geard.service
     sudo systemctl start geard.service
 
-
-Report issues and contribute
-----------------------------
+Developing geard
+----------------
 
 Bugs are tracked by the Red Hat and OpenShift test teams in [Bugzilla in the geard component](https://bugzilla.redhat.com/buglist.cgi?component=geard&product=OpenShift%20Origin), but you can always open a GitHub issue as well.
 
