@@ -9,7 +9,7 @@ dependencies, previously built artifacts, etc
 
 Interested in learning more?  Read on!
 
-Don't want to learn more?  Want to just get started NOW?  Check out the getting started instructions [here](go/).
+Want to just get started now?  Check out the [instructions](#getting-started).
 
 Philosophy
 ----------
