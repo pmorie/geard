@@ -30,14 +30,17 @@ Setup vagrant with libvirt
     $ gem install nokogiri -v '1.5.11'
     $ vagrant plugin install --plugin-version 0.0.16 vagrant-libvirt
 
-1.  Setup Vagrant Box and Vagrantfile
+1.  Setup Vagrant Box and review Vagrantfile
 
     vagrant box add --name=atomic --provider=libvirt http://rcm-img06.build.bos.redhat.com/images/releases/snaps/20140522.0/vagrant/rhel-atomic-host-vagrant.box
 
 Assume you have some location to hold Vagrantfile, i.e. ~/dockercon
 
-    $ cd <dockercon>
-    $ wget https://raw.githubusercontent.com/matthicksj/vagrant-ostree-setup/master/Vagrantfile
+    $ git clone git://github.com/pmorie/geard
+    $ cd geard
+    $ git checkout demo-multi
+    $ cd contrib/demo
+    $ cat Vagrantfile
 
 5.  Start VM
 
@@ -71,9 +74,27 @@ If you have other third-party plug-ins installed, try to remove them.  In partic
     1. vagrant-aws
     2. vagrant-openshift
 
+Be patient.
+
+This will bring up two vm instances: vm1 and vm2
+
+The provisioner on the initial vagrant up will fetch all required docker images to support the demo, and git clone required content.
+
 SSH
 
-$ vagrant ssh
+Validate all is good.
+
+$ vagrant ssh vm1
+$ docker images
+$ cd geard
+$ git branch
+* demo-multi
+master
+
+$ vagrant ssh vm2
+$ docker images
+* demo-multi
+master
 
 You can now run rpm-ostree commands, etc.
 
@@ -81,6 +102,7 @@ You can also see the vm running by viewing in virt-manager:
 
 $ virt-manager
 
+You should see both instances running.
 
 Demo Setup
 ----------
@@ -93,15 +115,10 @@ These instructions assume that you already have a VM with geard and docker.  Bef
 
     sudo systemctl stop firewalld.service
 
-1.  Clone pmorie's geard for and switch to the right branch:
-
-    git clone git://github.com/pmorie/geard
-    cd geard
-    git checkout demo
-
 1.  Next, run the demo setup script:
-
-    contrib/demo/setup.sh
+    
+    cd geard
+    contrib/demo/setup-multi.sh
 
 This will install the following containers:
 
