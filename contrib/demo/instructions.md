@@ -84,7 +84,7 @@ Demo Setup
 
 These instructions assume that you already have a VM with geard and docker.  Before you get started:
 
-1.  Make sure that the docker and geard daemons are running using `systemctl start`
+1.  Make sure that the docker and geard daemons are running using `sudo systemctl start`
 1.  Make sure that port `14000` on the VM is mapped to `14000` on your host machine.
 1.  Make sure that firewalld is stopped if using fedora as the OS for the VM:
 
@@ -106,15 +106,15 @@ This will install the following containers:
         parks-db-1
         parks-lb-1
 
-The setup script pauses in a couple of places due to it's use of gear deploy --with.  This 
+The setup script pauses in a couple of places due to it's use of `gear deploy --with`.  This 
 is because it tries to contact containers parks-backend-{2,3} that are not running. Eventually
 this times out. You will see some Error messages indicating the timeouts.
 
-You could `gear deploy ./contrib/demo/deploy_parks_map.json localhost` manually but be sure 
-to examine the setup.sh script and run the long switchns step that populates the database 
-with park locations.
+You could manually `sudo gear deploy ./contrib/demo/deploy_parks_map.json localhost`, but be sure 
+to examine the `contrib/demo/setup.sh` script and run the long `switchns` step that populates 
+the database with park locations.
 
-The setup script will leave `parks-backend-{2,3}` stopped, to be started for scale-up during 
+The `setup.sh` script will leave `parks-backend-{2,3}` stopped, to be started later for scale-up during 
 the demo.  Once the script has run, you should be able to hit the demo from your host in a 
 browser at: `http://localhost:14000`
 
