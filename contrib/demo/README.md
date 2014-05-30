@@ -52,6 +52,11 @@ Host setup
         $ docker pull pmorie/geard-demo-registry
         $ docker run -p 5000:5000 pmorie/geard-demo-registry
 
+6.  Pull and start shipyard
+
+        $ docker pull shipyard/deploy
+        $ docker run -i -t -v /var/run/docker.sock:/docker.sock shipyard/deploy setup
+
 6.  Start VMs
 
         $ vagrant up --provider=libvirt
