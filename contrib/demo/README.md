@@ -32,6 +32,7 @@ Host setup
         $ sudo yum install -y wget tree vim screen mtr nmap telnet tar git
         $ curl -sSL https://get.rvm.io | bash -s stable
         $ sudo yum install -y libvirt-devel libxslt-devel libxml2-devel
+        #For this to work I had to "sudo yum install ruby-dev*"
         $ gem install nokogiri -v '1.5.11'
         # Make sure that vagrant isn't installed as a gem. If it is, then uninstall it.
         $ vagrant plugin install --plugin-version 0.0.16 vagrant-libvirt
