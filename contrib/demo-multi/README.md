@@ -51,6 +51,7 @@ Host setup
 5.  Pull and start local docker registry.  This will be used to serve the docker images needed for
     the demo to the two VMs as well and to host images built during the demo.
 
+        $ sudo systemctl start docker.service
         $ docker pull pmorie/geard-demo-registry
         $ docker run -p 5000:5000 pmorie/geard-demo-registry
 
