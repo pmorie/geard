@@ -13,7 +13,7 @@ Host setup
 1.  Install Vagrant 1.6.2
 
         $ wget https://dl.bintray.com/mitchellh/vagrant/vagrant_1.6.2_x86_64.rpm
-        $ yum -y --nogpgcheck localinstall vagrant_1.6.2_x86_64.rpm
+        $ sudo yum -y --nogpgcheck localinstall vagrant_1.6.2_x86_64.rpm
         $ vagrant version
         Installed Version: 1.6.2
         Latest Version: 1.6.2
@@ -45,7 +45,7 @@ Host setup
         $ git clone git://github.com/pmorie/geard
         $ cd geard
         $ git checkout demo-multi
-        $ cd contrib/demo
+        $ cd contrib/demo-multi
         $ cat Vagrantfile
 
 5.  Pull and start local docker registry.  This will be used to serve the docker images needed for
