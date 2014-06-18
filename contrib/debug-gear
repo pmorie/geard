@@ -1,0 +1,14 @@
+#!/bin/bash -eu
+
+source "$(dirname $0)/build-support"
+
+function usage() {
+  echo "Usage: "
+  echo "    $0 [gear options]"
+  exit
+}
+
+# Construct a sane build environment
+setup_geard_build_env
+
+exec sudo -E cgdb gear
